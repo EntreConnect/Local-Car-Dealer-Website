@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <title>Car Dealer Webside | VELLARO</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --primary-color: #f0a13a;
+  --background-color: #0d0d0d;
+  --header-background-color: #080808;
+  --text-light: #767268;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --header-font: "Roboto Condensed", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: flex;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--background-color);
+}
+
+header {
+  background-color: var(--header-background-color);
+}
+
+nav {
+  position: sticky;
+  isolation: isolate;
+  width: 100%;
+  z-index: 9;
+}
+
+.nav__header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+}
+
+.nav__logo a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: var(--header-font);
+  color: var(--white);
+  line-height: 1.5rem;
+}
+
+.nav__menu__btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav__links {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: var(--primary-color);
+  transition: transform 0.5s;
+  z-index: -1;
+}
+
+.nav__links.open {
+  transform: translateY(100%);
+}
+
+.nav__links a {
+  font-size: 1rem;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.nav__links a:hover {
+  color: var(--background-color);
+}
+
+.nav__btns {
+  display: none;
+}
+
+.section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+.section__header {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: var(--header-font);
+  line-height: 2.75rem;
+  color: var(--white);
+}
+
+.section__description {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.75rem;
+}
+
+.header__container {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.header__container::before {
+  position: absolute;
+  content: "CZAR";
+  top: 0;
+  right: 0;
+  color: var(--white);
+  font-size: 25rem;
+  font-weight: 600;
+  font-family: var(--header-font);
+  line-height: 25rem;
+  background-image: linear-gradient(
+    to top,
+    var(--header-background-color),
+    var(--white)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.header__container::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  background-image: linear-gradient(
+    to top,
+    var(--header-background-color) 25%,
+    #ffffff00
+  );
+  z-index: 1;
+}
+
+.header__container h1 {
+  max-width: 475px;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: var(--header-font);
+  line-height: 3.75rem;
+  color: var(--white);
+}
+
+.header__container .section__description {
+  max-width: 300px;
+  margin-bottom: 1rem;
+}
+
+.header__container a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+.header__container img{
+  opacity: 0;
+  transform: translateY(30px);
+  animation-delay: 70s;
+  animation: fadeUp 1.2s ease-out forwards;
+}
+
+ 
+.header__container a span {
+  color: var(--white);
+}
+
+.shop {
+  position: relative;
+  isolation: isolate;
+}
+
+.shop::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  background-image: linear-gradient(
+    to bottom,
+    var(--header-background-color),
+    var(--background-color)
+  );
+}
+
+.shop__container {
+  display: grid;
+  overflow: hidden; /* Hide anything outside the card container */
+  position: relative;
+}
+
+.shop__card {
+  position: relative;
+  isolation: isolate;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-image: linear-gradient(
+    to bottom,
+    var(--header-background-color),
+    rgba(255, 255, 255, 0.1)
+  );
+  overflow: hidden;
+}
+
+.shop__card::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: var(--white);
+  font-size: 15rem;
+  font-weight: 600;
+  font-family: var(--header-font);
+  line-height: 15rem;
+  background-image: linear-gradient(
+    to top,
+    var(--header-background-color),
+    var(--white)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.shop__card:nth-child(1)::before {
+  content: "B";
+}
+
+.shop__card:nth-child(2)::before {
+  content: "L";
+}
+
+.shop__card:nth-child(3)::before {
+  content: "F";
+}
+
+.shop__card p {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.shop__card h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: var(--header-font);
+  color: var(--white);
+}
+
+.shop__card img {
+  max-width: 85%;
+  height: auto;
+  display: block;
+  margin-inline: auto;
+  margin-block: 4rem;
+  transition: 1s;
+}
+
+.shop__card div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.shop__card div a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.shop__card div a span {
+  color: var(--white);
+}
+
+.shop__card div > span {
+  color: var(--text-light);
+}
+
+.about {
+  overflow: hidden;
+}
+
+.about__container {
+  display: grid;
+  gap: 2rem;
+}
+
+.about__image {
+  position: relative;
+  isolation: isolate;
+}
+
+.about__image::before {
+  position: absolute;
+  content: "ABOUT US";
+  top: 0;
+  right: 0;
+  color: var(--white);
+  font-size: 15rem;
+  font-weight: 600;
+  font-family: var(--header-font);
+  white-space: nowrap;
+  line-height: 15rem;
+  background-image: linear-gradient(
+    to bottom,
+    var(--background-color),
+    var(--white)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.about__image::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-image: linear-gradient(to top, var(--background-color), #ffffff00);
+  z-index: 1;
+}
+
+.about__image img {
+  max-width: 525px;
+  margin-inline: auto;
+}
+
+.about__content .section__header {
+  margin-bottom: 1rem;
+}
+
+.about__content .section__description {
+  margin-bottom: 1rem;
+}
+
+.about__stats {
+  max-width: 350px;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about__stats h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: var(--header-font);
+  color: var(--primary-color);
+}
+
+.about__stats p {
+  font-size: 1rem;
+  font-family: var(--header-font);
+  color: var(--text-light);
+}
+
+.choose__container {
+  max-width: 1500px;
+}
+
+.choose__header {
+  margin-bottom: 4rem;
+  display: grid;
+  gap: 1rem 2rem;
+}
+
+.choose__header .section__header {
+  text-align: center;
+}
+
+.choose__header p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.swiper-slide {
+  width: 100%;
+  max-width: max-content;
+}
+
+.choose__card {
+  display: flex;
+  border-radius: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.choose__card__content {
+  position: relative;
+  isolation: isolate;
+  min-width: 175px;
+  padding: 1.5rem;
+  background-color: var(--primary-color);
+}
+
+.choose__card__content p {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-family: var(--header-font);
+  color: var(--background-color);
+}
+
+.choose__card__content a {
+  color: var(--background-color);
+  transition: 0.5s;
+}
+
+.choose__card__content a:hover{
+  transform: scale(1.1);
+}
+
+.choose__card__content h4 {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8rem;
+  font-weight: 800;
+  font-family: var(--header-font);
+  color: var(--background-color);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.choose__card img {
+  max-width: 450px;
+  max-height: 300px;
+  margin-left: 20px;
+  margin-right: 20px;
+  transition: 1s;
+}
+
+.choose__card img:hover{
+  transform: scale(1.1);
+}
+.banner__container {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.banner__container::before {
+  position: absolute;
+  content: "MON";
+  top: 50%;
+  left: 0;
+  transform: translate(calc(-50% + 7.5rem), -50%) rotate(-90deg);
+  color: var(--white);
+  font-size: 15rem;
+  font-weight: 600;
+  font-family: var(--header-font);
+  white-space: nowrap;
+  line-height: 15rem;
+  background-image: linear-gradient(
+    to bottom,
+    var(--background-color),
+    var(--white)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.banner__container::after {
+  position: absolute;
+  content: "STER";
+  top: 50%;
+  right: 0;
+  transform: translate(calc(50% - 7.5rem), -50%) rotate(90deg);
+  color: var(--white);
+  font-size: 15rem;
+  font-weight: 600;
+  font-family: var(--header-font);
+  white-space: nowrap;
+  line-height: 15rem;
+  background-image: linear-gradient(
+    to bottom,
+    var(--background-color),
+    var(--white)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.banner__container p {
+  position: absolute;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  z-index: 1;
+}
+
+.banner__container p:nth-child(1) {
+  top: 15%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.banner__container p:nth-child(2) {
+  top: 50%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+}
+
+.banner__container p:nth-child(3) {
+  bottom: 15%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.banner__container p:nth-child(4) {
+  top: 15%;
+  right: 20%;
+  transform: translate(50%, -50%);
+}
+
+.banner__container p:nth-child(5) {
+  top: 50%;
+  right: 15%;
+  transform: translate(50%, -50%);
+}
+
+.banner__container p:nth-child(6) {
+  bottom: 15%;
+  right: 20%;
+  transform: translate(50%, -50%);
+}
+
+.banner__container img {
+  max-width: 350px;
+  margin-inline: auto;
+  opacity: 0.5;
+}
+
+.footer__container {
+  display: grid;
+  gap: 4rem 2rem;
+}
+
+.footer__col h4 {
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: var(--header-font);
+  color: var(--white);
+}
+
+.footer__links {
+  display: grid;
+  gap: 1rem;
+}
+
+.footer__links a {
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+.footer__links a:hover {
+  color: var(--white);
+}
+
+.footer__bar {
+  padding-block: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  gap: 1rem;
+  border-top: 1px solid var(--text-light);
+}
+
+.footer__bar p {
+  font-size: 1rem;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.footer__socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer__socials a {
+  font-size: 1.2rem;
+  color: var(--text-light);
+}
+
+.footer__socials a:hover {
+  color: var(--white);
+}
+
+
+
+@media (width > 540px) {
+  .shop__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .banner__container img {
+    opacity: 1;
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width > 768px) {
+  nav {
+    position: static;
+    padding: 2rem 1rem;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .nav__header {
+    flex: 1;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .nav__logo a {
+    color: var(--primary-color);
+  }
+
+  .nav__menu__btn {
+    display: none;
+  }
+
+  .nav__links {
+    position: static;
+    width: fit-content;
+    padding: 0;
+    flex-direction: row;
+    background-color: transparent;
+    transform: none !important;
+  }
+
+  .nav__links a {
+    color: var(--text-light);
+  }
+
+  .nav__links a:hover {
+    color: var(--white);
+  }
+
+  .nav__btns {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  .nav__btns .btn {
+    padding: 4px 10px;
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    background-color: transparent;
+    border-radius: 100%;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  .nav__btns .btn:hover {
+    color: var(--primary-color);
+  }
+
+  .header__container {
+    padding-top: 2rem;
+  }
+
+  .header__container::after {
+    height: 50%;
+  }
+
+  .shop__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .choose__header {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .choose__header .section__header {
+    max-width: 350px;
+    margin-inline-start: auto;
+    padding-right: 1.75rem;
+    text-align: right;
+    border-right: 1px solid var(--text-light);
+  }
+
+  .choose__header p {
+    text-align: left;
+  }
+
+  .banner__container p span {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .banner__container p span::before,
+  .banner__container p span::after {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 5rem;
+    background-color: var(--text-light);
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+  }
+
+  .banner__container p:nth-child(1) span::after {
+    width: 4rem;
+    left: calc(6rem - 1px);
+    transform: translateY(-50%) rotate(45deg);
+    transform-origin: left;
+  }
+
+  .banner__container p:nth-child(3) span::after {
+    width: 4rem;
+    left: calc(6rem - 1px);
+    transform: translateY(-50%) rotate(-45deg);
+    transform-origin: left;
+  }
+
+  .banner__container p:nth-child(4) span::before,
+  .banner__container p:nth-child(4) span::after,
+  .banner__container p:nth-child(5) span::before,
+  .banner__container p:nth-child(5) span::after,
+  .banner__container p:nth-child(6) span::before,
+  .banner__container p:nth-child(6) span::after {
+    right: 1rem;
+    left: unset;
+  }
+
+  .banner__container p:nth-child(4) span::after {
+    width: 4rem;
+    right: calc(6rem - 1px);
+    transform: translateY(-50%) rotate(-45deg);
+    transform-origin: right;
+  }
+
+  .banner__container p:nth-child(6) span::after {
+    width: 4rem;
+    right: calc(6rem - 1px);
+    transform: translateY(-50%) rotate(45deg);
+    transform-origin: right;
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .footer__col:nth-child(1) {
+    max-width: 350px;
+    grid-column: 1/3;
+  }
+
+  .footer__bar {
+    flex-direction: row;
+  }
+}
+
+@keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+@media (width > 1024px) {
+  .nav__links {
+    gap: 3rem;
+  }
+
+  .shop__container {
+    gap: 1.5rem;
+  }
+
+  .shop__card {
+    padding: 2rem;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav__header">
+          <div class="nav__logo">
+            <a href="#">VELLARO</a>
+          </div>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#products">PRODUCTS</a></li>
+          <li><a href="#about">ABOUT US</a></li>
+          <li><a href="#store">STORE</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <div class="section__container header__container" id="home">
+        <h1>Experience The EXTRAORDINARY</h1>
+        <p class="section__description">
+          Engineered for speed, precision, and endurance, this machine is built
+          to dominate the roads.
+        </p>
+        <div class="header__link">
+          <a>
+            <span><i class="ri-arrow-right-long-line"></i></span>
+            Learn More
+          </a>
+        </div>
+        <img src="Head/head.png" alt="header" />
+      </div>
+    </header>
+
+    <section class="shop" id="products">
+      <div class="section__container shop__container">
+        <div class="shop__card">
+          <p>EXCLUSIVE</p>
+          <h4>BUGATTI CHIRON</h4>
+          <img src="Bugatti Chiron/bg front 1.png" alt="shop" />
+          <div>
+            <a href="Bugatti Slider.html">
+              <span><i class="ri-arrow-right-long-line"></i></span>
+              Learn More
+            </a>
+            <span>Rs. 26.40 Cr</span>
+          </div>
+        </div>
+        <div class="shop__card">
+          <p>EXCLUSIVE</p>
+          <h4>LAMBORGHINI AVENTADOR</h4>
+          <img src="Lambo Aventador/l front.png" alt="shop" />
+          <div>
+            <a href="Lambo Slider.html">
+              <span><i class="ri-arrow-right-long-line"></i></span>
+              Learn More
+            </a>
+            <span>Rs. 8.60 Cr</span>
+          </div>
+        </div>
+        <div class="shop__card">
+          <p>EXCLUSIVE</p>
+          <h4>FERRARI SF90</h4>
+          <img src="Ferrari/f front.png" alt="shop" />
+          <div>
+            <a href="Ferrari Slider.html">
+              <span><i class="ri-arrow-right-long-line"></i></span>
+              Learn More
+            </a>
+            <span>Rs. 7.50 Cr</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="section__container about__container">
+        <div class="about__image">
+          <img src="Head/head.png" alt="about" />
+        </div>
+        <div class="about__content">
+          <h2 class="section__header">
+            Experience the Pinnacle of Performance and Prestige with VELLARO
+          </h2>
+          <p class="section__description">
+            VELLARO transcends being a store. An icon of speed, a beacon of innovation, and a legacy of unparalleled engineering excellence
+          </p>
+          <p class="section__description">
+            Crafted for connoisseurs who demand an adrenaline-charged drive fused with uncompromising sophistication, VELLARO delivers an extraordinary automotive experience. With its sculpted aerodynamic silhouette, powerhouse engineering, and intelligent innovation, every detail is precision-built for performance. Whether you're commanding grand highways or cruising through urban elegance, VELLARO redefines motion as art and every journey as a statement.
+          </p>
+          <div class="about__stats">
+            <div>
+              <h4>237</h4>
+              <p>STAFF</p>
+            </div>
+            <div>
+              <h4>593</h4>
+              <p>MOTOR</p>
+            </div>
+            <div>
+              <h4>23</h4>
+              <p>BRANCH</p>
+            </div>
+            <div>
+              <h4>640M</h4>
+              <p>PROFIT</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="choose" id="store">
+      <div class="section__container choose__container">
+        <div class="choose__header">
+          <h2 class="section__header">CHOOSE YOUR FAVORITE MASTERPIECE</h2>
+          <p>SUFFERED ALTERNATION</p>
+        </div>
+  
+        <div class="swiper">
+
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="choose__card">
+                <div class="choose__card__content">
+                  <p>AUDI</p>
+                  <a href="Audi Slider.html">
+                    <span><i class="ri-arrow-right-long-line"></i></span>
+                    Learn More
+                  </a>
+                  <h4>Q8</h4>
+                </div>
+                <img src="Audi/au front.png" alt="choose" />
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="choose__card">
+                <div class="choose__card__content">
+                  <p>BMW</p>
+                  <a href="bmw Slider.html">
+                    <span><i class="ri-arrow-right-long-line"></i></span>
+                    Learn More
+                  </a>
+                  <h4>X7</h4>
+                </div>
+                <img src="BMW/bmw front.png" alt="choose" />
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="choose__card">
+                <div class="choose__card__content">
+                  <p>LAND ROVER</p>
+                  <a href="RR Slider.html">
+                    <span><i class="ri-arrow-right-long-line"></i></span>
+                    Learn More
+                  </a>
+                  <h4>RR</h4>
+                </div>
+                <img src="Range Rover/rr front.png" alt="choose" />
+              </div>
+              </div>
+
+              <div class="swiper-slide">
+              <div class="choose__card">
+                <div class="choose__card__content">
+                  <p>MERCEDES</p>
+                  <a href="Mercedes Slider.html">
+                    <span><i class="ri-arrow-right-long-line"></i></span>
+                    Learn More
+                  </a>
+                  <h4>GL</h4>
+                </div>
+                <img src="Mercedes/mc front.png" alt="choose" />
+              </div>
+              </div>
+              </div>
+            </div>
+            </div>
+    </section>
+
+    <section class="banner" id="contact">
+      <div class="section__container banner__container">
+        <p>SUSPENSION<span></span></p>
+        <p>BRAKES<span></span></p>
+        <p>TRANSMISSION<span></span></p>
+        <p><span></span>FUEL INJECTION</p>
+        <p><span></span>TRACTION</p>
+        <p><span></span>RELAIBILITY</p>
+        <img src="Head/engine.png" alt="banner" />
+      </div>
+    </section>
+
+    <footer>
+      <div class="section__container footer__container" id="Contact">
+        <div class="footer__col">
+          <h4>ABOUT</h4>
+          <p class="section__description">
+            Experience the unstoppable power of cutting-edge design and
+            high-performance engineering. Ride with confidence and unleash the
+            thrill of adventure like never before!
+          </p>
+        </div>
+        <div class="footer__col">
+          <h4>SERVICES</h4>
+          <ul class="footer__links">
+            <li><a>Engine Clearing</a></li>
+            <li><a>Full Services</a></li>
+            <li><a>Test Ride Booking</a></li>
+            <li><a>Financing Options</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>OFFICE</h4>
+          <ul class="footer__links">
+            <li><a>About Us</a></li>
+            <li><a>Contact Us</a></li>
+            <li><a href="https://maps.app.goo.gl/VtdXY2uxMEKUBNN57">Dealer Locator</a></li>
+            <li><a>Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>MODEL</h4>
+          <ul class="footer__links">
+            <li><a href="Audi Slider.html">AUDI Q8</a></li>
+            <li><a href="bmw Slider.html">BMW X7</a></li>
+            <li><a href="RR Slider.html">LAND ROVER RANGE ROVER</a></li>
+            <li><a href="Mercedes Slider.html">MERCEDES GLC</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="section__container footer__bar">
+        <p>Crafted with Love by Anurag Mishra | Copyright © VELLARO. All rights reserved.</p>
+        <ul class="footer__socials">
+          <li>
+            <a href="https://www.facebook.com/profile.php?id=61552686083657"><i class="ri-facebook-fill"></i></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/high.street.cars"><i class="ri-instagram-line"></i></a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.getElementById("nav-links");
+const menuBtnIcon = menuBtn.querySelector("i");
+
+menuBtn.addEventListener("click", (e) => {
+  navLinks.classList.toggle("open");
+
+  const isOpen = navLinks.classList.contains("open");
+  menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+});
+
+navLinks.addEventListener("click", (e) => {
+  navLinks.classList.remove("open");
+  menuBtnIcon.setAttribute("class", "ri-menu-line");
+});
+
+const scrollRevealOption = {
+  distance: "50px",
+  origin: "bottom",
+  duration: 1000,
+};
+
+ScrollReveal().reveal(".header__container h1", {
+  ...scrollRevealOption,
+});
+ScrollReveal().reveal(".header__container .section__description", {
+  ...scrollRevealOption,
+  delay: 500,
+});
+ScrollReveal().reveal(".header__link", {
+  ...scrollRevealOption,
+  delay: 1000,
+});
+
+ScrollReveal().reveal(".shop__card", {
+  ...scrollRevealOption,
+  interval: 500,
+});
+
+ScrollReveal().reveal(".about__content .section__header", {
+  ...scrollRevealOption,
+});
+ScrollReveal().reveal(".about__content .section__description", {
+  ...scrollRevealOption,
+  delay: 500,
+  interval: 500,
+});
+ScrollReveal().reveal(".about__stats", {
+  ...scrollRevealOption,
+  delay: 1500,
+});
+
+const swiper = new Swiper(".swiper", {
+  loop: true,
+  slidesPerView: "auto",
+  spaceBetween: 20,
+});
+
+ScrollReveal().reveal(".banner__container p", {
+  duration: 1000,
+  interval: 500,
+});
+    </script>
+  </body>
+</html>
